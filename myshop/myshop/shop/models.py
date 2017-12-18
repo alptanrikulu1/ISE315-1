@@ -2,8 +2,10 @@ from django.db import models
 
 # Create your models here.
 
+
 from django.db import models
 from django.core.urlresolvers import reverse
+
 
 class Category(models.Model):
  name = models.CharField(max_length=200,
@@ -17,6 +19,7 @@ class Category(models.Model):
      return reverse('shop:product_list_by_category',
                     args=[self.slug])
 
+  
 class Meta:
      ordering = ('name',)
      verbose_name = 'category'
@@ -38,6 +41,7 @@ class Product(models.Model):
      available = models.BooleanField(default=True)
      created = models.DateTimeField(auto_now_add=True)
      updated = models.DateTimeField(auto_now=True)
+     
 
      class Meta:
          ordering = ('name',)
